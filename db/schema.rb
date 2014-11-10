@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20141110155354) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "lineitem_options", force: true do |t|
@@ -33,7 +34,7 @@ ActiveRecord::Schema.define(version: 20141110155354) do
   create_table "lineitems", force: true do |t|
     t.decimal  "combined_price"
     t.integer  "product_id"
-    t.integer  "orders_id"
+    t.integer  "order_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 20141110155354) do
 
   create_table "products", force: true do |t|
     t.string   "name"
+    t.string   "description"
     t.decimal  "price"
     t.integer  "category_id"
     t.datetime "created_at",  null: false

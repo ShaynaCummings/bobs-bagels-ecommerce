@@ -2,10 +2,15 @@ category1 = Category.create(name: 'Catering Menu')
 category2 = Category.create(name: 'Sandwiches')
 category3 = Category.create(name: 'Beverages')
 
+category4 = Category.create(name: 'Small bagel box', category_id:1)
+category5 = Category.create(name: 'Large bagel box', category_id:1)
+category6 = Category.create(name: 'Party box', category_id:1)
 
-products = Product.create([{name: 'The Somerville', price:6.75, category_id:2},
-{name: 'Small Bagel Box', price:12.00, category_id:1},
-{name: 'The Brookline', price:7.50, category_id:2}, ])
+
+
+products = Product.create([{name: 'The Somerville', description: 'whole wheat bagel with', price:6.75, category_id:2},
+{name: 'Small Bagel Box', description: '12 bagels', price:12.00, category_id:1},
+{name: 'The Brookline', description: 'poppyseed bagel with', price:7.50, category_id:2}, ])
 
 
 
