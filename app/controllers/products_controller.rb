@@ -1,13 +1,25 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+    if params[:categories_id]
+      @category = Category.find(params[:category_id])
+      @products = @category.products
+    else
+      @products = Product.all
+    end
+
     render json: @products
   end
 
   def show
     @product = Product.find(params[:id])
     render json: @product
+  end
+
+  private
+
+  def products_params
+    params.permit(:name, :price, :category_id)
   end
 
 end

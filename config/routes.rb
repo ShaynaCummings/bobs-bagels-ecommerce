@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :categories
+  resources :categories, only: [:show, :index] do
+    resources :products, only: [:show, :index]
+  end
 
-  resources :products
+  resources :products, only: [:show, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
