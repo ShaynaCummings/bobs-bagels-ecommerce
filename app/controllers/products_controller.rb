@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    if params[:categories_id]
+    if params[:category_id]
       @category = Category.find(params[:category_id])
       @products = @category.products
     else
@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     render json: @product
   end
+
 
   private
 
