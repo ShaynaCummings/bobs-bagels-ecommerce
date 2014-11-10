@@ -7,6 +7,12 @@ Rails.application.routes.draw do
 
   resources :products, only: [:show, :index]
 
+  resources :options, only: [:show, :index]
+
+  resources :lineitems, only: [:show, :index]
+
+  resources :orders, only: [:show, :index]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
