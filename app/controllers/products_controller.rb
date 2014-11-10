@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
     render json: @product
   end
 
+
   private
 
   def products_params
