@@ -6,7 +6,6 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
     @category = Category.find(params[:id])
     render json: @category
   end
