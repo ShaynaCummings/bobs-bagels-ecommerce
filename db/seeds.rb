@@ -11,7 +11,15 @@ products = Product.create(
   [{name: 'The Somerville', description: 'whole wheat bagel with', price:6.75, category_id:2},
   {name: 'Plain Bagels', description: '12 bagels', price:12.00, category_id:4},
   {name: 'The Brookline', description: 'poppyseed bagel with', price:7.50, category_id:2},
-  {name: 'Small', description: ' ', price:2.75, category_id:7}])
+  {name: 'Small', description: ' ', price:2.75, category_id:7}]
+  )
+
+
+options = Option.create(
+  [{name: 'Plain cream cheese', price:1.50},
+  {name: 'Tofutti', price:2.00}
+  ]
+  )
 
 
 
