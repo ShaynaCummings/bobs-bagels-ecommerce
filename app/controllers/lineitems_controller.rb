@@ -1,6 +1,7 @@
 class LineitemsController < ApplicationController
 
   def create
+    product = Product.find(params[:product_id])
     @lineitem = Lineitem.create(lineitem_params)
     render json: @lineitem
   end
