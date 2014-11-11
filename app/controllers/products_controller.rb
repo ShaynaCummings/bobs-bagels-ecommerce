@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
       @products = Product.all
     end
 
-    render json: @products
+    render json: @products.as_json(include: [:category, :options])
   end
 
   def show
