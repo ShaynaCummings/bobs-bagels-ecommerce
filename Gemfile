@@ -15,7 +15,6 @@ gem 'rails_12factor', group: :production
 group :development do
   gem 'spring'
   gem 'pry'
-  gem 'awesome_print'
 end
 
 # To use ActiveModel has_secure_password
