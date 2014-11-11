@@ -1,15 +1,15 @@
 class OrdersController < ApplicationController
 
   def create
-    @order = Order.new
-    # line_items = { product_id:product_id}
-    line_items.each do |item|
 
+    @order = Order.new(order_params)
 
+    #parse lineitems from JSON object and shovel into an array
+    lineitems  #blahblah javascript
+    lineitems.each do |item|
+      lineitems << item
     end
 
-
-    @order = Order.create(order_params)
     render json: @order
   end
 

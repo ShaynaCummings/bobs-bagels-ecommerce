@@ -1,8 +1,8 @@
 class LineitemsController < ApplicationController
 
   def create
-    product = Product.find(params[:product_id])
-    @lineitem = Lineitem.create(lineitem_params)
+    @lineitem = Lineitem.new(lineitem_params)
+    @product = Product.find(params[:product_id])
     render json: @lineitem
   end
 
@@ -13,9 +13,9 @@ class LineitemsController < ApplicationController
 
   private
 
-  def lineitem_params
-    params.permit(:product_id, :order_id)
-  end
+    def lineitem_params
+      params.permit(:product_id, :order_id)
+    end
 
 
 end
