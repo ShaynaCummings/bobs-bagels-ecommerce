@@ -2,13 +2,29 @@ class OrdersController < ApplicationController
 
   def create
 
-    @order = Order.new(order_params)
+    # order = {
+    #   lineitems:[
+    #     # The Hub with Everything
+    #     {
+    #       product_id: 4,
+    #       combined_price: 6,
+    #       line_item_options: [14, 2, 7, 15]
+    #     },
+    #     # Latte small
+    #     {
+    #       product_id: 10,
+    #       combined_price: 3.5,
+    #       line_item_options: [45]
+    #     }
+    #   ]
+    #   status: 'pending',
+    #   street_address: '50 Melcher Street',
+    #   zip_code: '02210',
+    #   delivery_price: 6,
+    #   order_total: 15.5
+    # }
 
-    #parse lineitems from JSON object and shovel into an array
-    lineitems  #blahblah javascript
-    lineitems.each do |item|
-      lineitems << item
-    end
+    @order = Order.create(params[:order])
 
     render json: @order
   end
@@ -24,7 +40,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:user_id, :status, :transaction_id)
+    params.permit(:order)
   end
 
 end
