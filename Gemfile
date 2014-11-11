@@ -11,6 +11,8 @@ gem 'spring', :group => :development
 
 gem 'pg'
 
+gem 'jbuilder'
+
 gem 'rails_12factor', group: :production
 
 
