@@ -8,9 +8,10 @@ RSpec.describe Product, :type => :model do
 		expect(product_1.price).to eq(5550)
 	end
 
-	it "should have many options" do
+	it "should have many options through product_options" do
 		t = Product.reflect_on_association(:options)
-
-		t.macro.should == :has_many 
+		# should_have_many :options, :through => :product_options //something is wrong with this
+		t.macro.should == :has_many
+		# okay so this works, but I'm not convinced that it is testing the right relationship
 	end
 end
