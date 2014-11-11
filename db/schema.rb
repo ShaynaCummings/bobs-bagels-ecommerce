@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20141110155354) do
 
   create_table "options", force: true do |t|
     t.string   "name"
-    t.decimal  "prics",      precision: 5, scale: 2
+    t.decimal  "price",      precision: 5, scale: 2
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end
