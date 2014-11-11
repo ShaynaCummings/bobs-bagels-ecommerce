@@ -20,6 +20,7 @@ gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
 	gem 'rspec-rails', '~> 3.0.0'
+	# It has been recommended to me that I use the coverall gem to see how much code I'm touching with tests.
 end
 
 # To use ActiveModel has_secure_password
