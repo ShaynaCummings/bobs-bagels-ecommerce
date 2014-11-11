@@ -7,4 +7,10 @@ RSpec.describe Product, :type => :model do
 		expect(product_1.name).to eq("toy")
 		expect(product_1.price).to eq(5550)
 	end
+
+	it "should have many options" do
+		t = Product.reflect_on_association(:options)
+
+		t.macro.should == :has_many 
+	end
 end
