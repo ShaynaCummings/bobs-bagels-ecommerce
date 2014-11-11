@@ -48,8 +48,14 @@ ActiveRecord::Schema.define(version: 20141110155354) do
 
   create_table "orders", force: true do |t|
     t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.decimal  "delivery_price", precision: 5, scale: 2
+    t.decimal  "order_total",    precision: 5, scale: 2
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "product_options", force: true do |t|

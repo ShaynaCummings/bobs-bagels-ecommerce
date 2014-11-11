@@ -2,15 +2,50 @@ class OrdersController < ApplicationController
 
   def create
 
-    @order = Order.new(order_params)
 
-    #parse lineitems from JSON object and shovel into an array
-    lineitems  #blahblah javascript
-    lineitems.each do |item|
-      lineitems << item
+# order = {
+#   lineitems:[
+
+#     {
+#       lineitem: {
+#         product_id: 4,
+#         combined_price: 6
+#       },
+#       lineitem_options: [14, 2, 7, 15]
+#     },
+
+#     {
+#       lineitem: {
+#         product_id: 10,
+#         combined_price: 3.5
+#       },
+#       lineitem_options: [45]
+#     }
+#   ],
+#   order_info:{
+#     status: 'pending',
+#     street_address: '50 Melcher Street',
+#     city: 'Boston',
+#     state: 'MA',
+#     zip_code: '02210',
+#     delivery_price: 6,
+#     order_total: 15.5
+#   }
+# }
+    order_hash = eval(params[:order])
+    @order = Order.create(order_hash[:order_info])
+    order_hash[:lineitems].each do |item|
+      @order.lineitems << Lineitem.create(item[:lineitem])
+
+      item[:lineitem_options].each do |option_id|
+        @order.lineitems.last.options << Option.find(option_id)
+      end
     end
 
-    render json: @order
+    @order.save
+
+
+    render json: @order.as_json(include: [:lineitems])
   end
 
   def show
@@ -22,9 +57,5 @@ class OrdersController < ApplicationController
   end
 
   private
-
-  def order_params
-    params.permit(:user_id, :status, :transaction_id)
-  end
 
 end
