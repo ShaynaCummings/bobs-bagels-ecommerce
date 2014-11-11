@@ -11,6 +11,7 @@ RSpec.describe Product, :type => :model do
 	it "should have many options through product_options" do
 		t = Product.reflect_on_association(:options)
 		# should_have_many :options, :through => :product_options //something is wrong with this
+		# t.macro.should == :has_many_through
 		t.macro.should == :has_many
 		# okay so this works, but I'm not convinced that it is testing the right relationship
 	end
