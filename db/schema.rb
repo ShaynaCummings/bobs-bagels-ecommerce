@@ -32,18 +32,18 @@ ActiveRecord::Schema.define(version: 20141110155354) do
   add_index "lineitem_options", ["option_id"], name: "index_lineitem_options_on_option_id", using: :btree
 
   create_table "lineitems", force: true do |t|
-    t.decimal  "combined_price"
+    t.decimal  "combined_price", precision: 5, scale: 2
     t.integer  "product_id"
     t.integer  "order_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "options", force: true do |t|
     t.string   "name"
-    t.decimal  "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.decimal  "price",      precision: 5, scale: 2
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "orders", force: true do |t|
@@ -63,10 +63,10 @@ ActiveRecord::Schema.define(version: 20141110155354) do
   create_table "products", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.decimal  "price"
+    t.decimal  "price",       precision: 5, scale: 2
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
 end
