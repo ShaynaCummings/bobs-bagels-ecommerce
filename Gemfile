@@ -15,6 +15,8 @@ gem 'jbuilder'
 
 gem 'rails_12factor', group: :production
 
+gem 'rack-cors', :require => 'rack/cors'
+
 
 group :development, :test do
 	gem 'rspec-rails', '~> 3.0.0'
