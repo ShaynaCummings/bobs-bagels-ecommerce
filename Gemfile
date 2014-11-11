@@ -8,12 +8,14 @@ gem 'rails-api'
 
 gem 'spring', :group => :development
 
-gem 'rspec-rails', :group => :development
-
 gem 'pg'
 
 gem 'rails_12factor', group: :production
 
+
+group :development, :test do
+	gem 'rspec-rails', '~> 3.0.0'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
