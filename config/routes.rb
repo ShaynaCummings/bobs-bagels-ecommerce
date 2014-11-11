@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+
+  resources :categories, only: [:show, :index] do
+    resources :categories, only: [:show, :index]
+    resources :products, only: [:show, :index]
+  end
+
+  resources :products, only: [:show, :index]
+
+  resources :options, only: [:show, :index]
+
+  resources :lineitems, only: [:show, :index]
+
+  resources :orders, only: [:show, :index, :create]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
