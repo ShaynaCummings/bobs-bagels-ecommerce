@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
+ruby '2.1.2'
 
 gem 'rails', '4.2.0.beta2'
 
@@ -12,9 +12,14 @@ gem 'jbuilder'
 
 gem 'rails_12factor', group: :production
 
-group :development do
+gem 'rack-cors', :require => 'rack/cors'
+
+
+group :development, :test do
   gem 'spring'
   gem 'pry'
+	gem 'rspec-rails', '~> 3.0.0'
+	# It has been recommended to me that I use the coverall gem to see how much code I'm touching with tests.
 end
 
 # To use ActiveModel has_secure_password
