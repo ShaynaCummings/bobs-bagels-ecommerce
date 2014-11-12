@@ -53,7 +53,10 @@ class OrdersController < ApplicationController
     render json: @order
   end
 
-  def destroy
+  def index
+    @orders = Order.all
+
+    render json: @orders.as_json(include: [:lineitems])
   end
 
   private
