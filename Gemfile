@@ -19,6 +19,7 @@ gem 'rack-cors', :require => 'rack/cors'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
+gem 'dotenv-rails', :groups => [:development, :test]
 
 group :development, :test do
 	gem 'rspec-rails', '~> 3.0.0'
