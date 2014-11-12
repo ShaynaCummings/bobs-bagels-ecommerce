@@ -2,7 +2,7 @@
 
 somerville = Product.create(
   name: 'The Somerville',
-  description: 'whole weat bagel',
+  description: 'whole wheat bagel',
   price: 6.75,
   category: Category.find_or_initialize_by(name: 'Sandwiches'),
   options: [

@@ -2,15 +2,20 @@ class OrdersController < ApplicationController
 
   def create
 
-    @order = Order.new(order_params)
+    @order = Order.create(order_info_params)
 
-    #parse lineitems from JSON object and shovel into an array
-    lineitems  #blahblah javascript
-    lineitems.each do |item|
-      lineitems << item
+    line_item_params.values.each do |item|
+
+      @order.lineitems << Lineitem.create(item[:lineitem])
+
+      item[:lineitem_options].each do |option_id|
+        @order.lineitems.last.options << Option.find(option_id)
+      end
     end
 
-    render json: @order
+    @order.save
+
+    render json: @order.as_json(include: [:lineitems])
   end
 
   def show
@@ -18,13 +23,19 @@ class OrdersController < ApplicationController
     render json: @order
   end
 
-  def destroy
+  def index
+    @orders = Order.all
+
+    render json: @orders.as_json(include: [:lineitems])
   end
 
   private
 
-  def order_params
-    params.permit(:user_id, :status, :transaction_id)
+  def line_item_params
+    params.require(:lineitems)
   end
 
+  def order_info_params
+    params.require(:order_info).permit(:status, :street_address, :city, :state, :zip_code, :delivery_price, :order_total)
+  end
 end
