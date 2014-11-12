@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     @order = Order.create(order_info_params)
 
     line_item_params.values.each do |item|
-      binding.pry
+
       @order.lineitems << Lineitem.create(item[:lineitem])
 
       item[:lineitem_options].each do |option_id|
@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
     end
 
     @order.save
-
 
     render json: @order.as_json(include: [:lineitems])
   end
