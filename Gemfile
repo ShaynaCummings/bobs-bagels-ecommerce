@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
+ruby '2.1.2'
 
 gem 'rails', '4.2.0.beta2'
 
@@ -14,6 +14,7 @@ gem 'rails_12factor', group: :production
 
 gem 'rack-cors', :require => 'rack/cors'
 
+gem 'devise'
 
 group :development, :test do
   gem 'spring'
