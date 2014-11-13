@@ -10,6 +10,8 @@ gem 'pg'
 
 gem 'jbuilder'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 gem 'rails_12factor', group: :production
 
 gem 'rack-cors', :require => 'rack/cors'
