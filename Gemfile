@@ -18,6 +18,7 @@ gem 'rack-cors', :require => 'rack/cors'
 
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'spring'
   gem 'pry'
 	gem 'rspec-rails', '~> 3.0.0'
