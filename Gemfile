@@ -10,12 +10,15 @@ gem 'pg'
 
 gem 'jbuilder'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 gem 'rails_12factor', group: :production
 
 gem 'rack-cors', :require => 'rack/cors'
 
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'spring'
   gem 'pry'
 	gem 'rspec-rails', '~> 3.0.0'

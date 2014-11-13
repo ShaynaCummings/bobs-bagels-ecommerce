@@ -2,7 +2,14 @@ class OrdersController < ApplicationController
 
   def create
 
-    @order = Order.create(order_info_params)
+    Stripe.api_key = ENV['SECRET_KEY']
+    charge = Stripe::Charge.create(
+      :card        => parameters[:stripe],
+      :amount      => 500,
+      :currency    => 'usd'
+    )
+
+    @order = Order.create(parameters[:order_info])
 
     line_item_params.values.each do |item|
 
@@ -16,12 +23,10 @@ class OrdersController < ApplicationController
     @order.save
 
     render json: @order.as_json(include: [:lineitems])
+
   end
 
-  def show
-    @order = Order.find(params[:id])
-    render json: @order
-  end
+
 
   def index
     @orders = Order.all
@@ -35,7 +40,8 @@ class OrdersController < ApplicationController
     params.require(:lineitems)
   end
 
-  def order_info_params
-    params.require(:order_info).permit(:status, :street_address, :city, :state, :zip_code, :delivery_price, :order_total)
+  def parameters
+
+    params.permit(:stripe, :order_info => [:status, :street_address, :city, :state, :zip_code, :delivery_price, :order_total])
   end
 end
