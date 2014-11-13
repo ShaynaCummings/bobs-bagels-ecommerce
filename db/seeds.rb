@@ -2,7 +2,7 @@
 
 somerville = Product.create(
   name: 'The Somerville',
-  description: 'whole wheat bagel',
+  description: 'Whole Wheat Bagel',
   price: 6.75,
   category: Category.find_or_initialize_by(name: 'Sandwiches'),
   options: [
@@ -16,8 +16,8 @@ somerville = Product.create(
 
 north_end = Product.create(
   name: 'The North End',
-  description: 'onion bagel',
-  price: 6.75,
+  description: 'Onion Bagel',
+  price: 6.50,
   category: Category.find_or_initialize_by(name: 'Sandwiches'),
   options: [
     Option.find_or_initialize_by(name: 'roast beef', price: 0),
@@ -30,8 +30,8 @@ north_end = Product.create(
 
 south_end = Product.create(
   name: 'The South End',
-  description: 'sesame bagel',
-  price: 6.75,
+  description: 'Sesame Bagel',
+  price: 6.50,
   category: Category.find_or_initialize_by(name: 'Sandwiches'),
   options: [
     Option.find_or_initialize_by(name: 'corn beef', price: 0),
@@ -43,8 +43,21 @@ south_end = Product.create(
 
 hub = Product.create(
   name: 'The Hub',
-  description: 'plain bagel',
+  description: 'Plain Bagel',
   price: 6.00,
+  category: Category.find_or_initialize_by(name: 'Sandwiches'),
+  options: [
+    Option.find_or_initialize_by(name: 'turkey', price: 0),
+    Option.find_or_initialize_by(name: 'garlic mayo', price: 0),
+    Option.find_or_initialize_by(name: 'tomato', price: 0),
+    Option.find_or_initialize_by(name: 'cucumber', price: 0)
+  ]
+)
+
+brookline = Product.create(
+  name: 'The Brookline',
+  description: 'Poppyseed Bagel',
+  price: 7.50,
   category: Category.find_or_initialize_by(name: 'Sandwiches'),
   options: [
     Option.find_or_initialize_by(name: 'cream cheese', price: 0),
@@ -55,8 +68,8 @@ hub = Product.create(
 )
 
 build_your_own = Product.create(
-  name: 'Build Your Own Bagel - Plain',
-  description: 'plain bagel',
+  name: 'Build Your Own Bagel',
+  description: 'Plain Bagel',
   price: 2.50,
   category: Category.find_or_initialize_by(name: 'Sandwiches'),
   options: [
@@ -99,9 +112,36 @@ small_bagel_box = Product.create(
   ]
 )
 
-large_bagel_box = Product.create(
-  name: 'Cream Cheese',
+ large_bagel_box = Product.create(
+  name: 'Large Bagel Box',
   description: 'catering size cream cheese',
+  price: 4.00,
+  category: Category.find_or_initialize_by(name: 'Catering'),
+  options: [
+    Option.find_or_initialize_by(name: '18 plain bagels', price: 18),
+    Option.find_or_initialize_by(name: '18 sesame seed bagels', price: 20),
+    Option.find_or_initialize_by(name: '18 poppy seed bagels', price: 20),
+    Option.find_or_initialize_by(name: '18 onion bagels', price: 20),
+    Option.find_or_initialize_by(name: '18 whole wheat bagels', price: 20),
+    Option.find_or_initialize_by(name: '18 cinnamon raisin bagels', price: 20),
+    Option.find_or_initialize_by(name: '18 mixed variety bagels (2 of each)', price: 20)
+  ]
+)
+
+party_box = Product.create(
+  name: 'Party Bagel Box',
+  description: 'for your wildest bagel festivities',
+  price: 50.00,
+  category: Category.find_or_initialize_by(name: 'Catering'),
+  options: [
+    Option.find_or_initialize_by(name: 'plain cream cheese', price: 0),
+    Option.find_or_initialize_by(name: 'chive cream cheese', price: 0),
+  ]
+)
+
+cream_cheeses = Product.create(
+  name: 'Specialty Cream Cheeses',
+  description: 'a party-sized tub of cream cheese',
   price: 4.00,
   category: Category.find_or_initialize_by(name: 'Catering'),
   options: [
@@ -112,6 +152,7 @@ large_bagel_box = Product.create(
   ]
 )
 
+
 # Beverages
 
 soda = Product.create(
@@ -119,8 +160,8 @@ soda = Product.create(
   price: 2.75,
   category: Category.find_or_initialize_by(name: 'Beverages'),
   options: [
-    Option.find_or_initialize_by(name: 'small soda', price: 0),
-    Option.find_or_initialize_by(name: 'large soda', price: 0.75)
+    Option.find_or_initialize_by(name: 'Small Soda', price: 0),
+    Option.find_or_initialize_by(name: 'Large Soda', price: 0.75)
   ]
 )
 
@@ -129,8 +170,8 @@ coffee = Product.create(
   price: 2.0,
   category: Category.find_or_initialize_by(name: 'Beverages'),
   options: [
-    Option.find_or_initialize_by(name: 'small coffee', price: 0),
-    Option.find_or_initialize_by(name: 'large coffee', price: 0.25)
+    Option.find_or_initialize_by(name: 'Small Coffee', price: 0),
+    Option.find_or_initialize_by(name: 'Large Coffee', price: 0.25)
   ]
 )
 
@@ -139,8 +180,8 @@ latte = Product.create(
   price: 3.50,
   category: Category.find_or_initialize_by(name: 'Beverages'),
   options: [
-    Option.find_or_initialize_by(name: 'small latte', price: 0),
-    Option.find_or_initialize_by(name: 'large latte', price: 1.25)
+    Option.find_or_initialize_by(name: 'Small Latte', price: 0),
+    Option.find_or_initialize_by(name: 'Large Latte', price: 1.25)
   ]
 )
 
