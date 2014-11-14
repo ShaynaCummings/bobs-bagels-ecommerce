@@ -7,6 +7,8 @@ class Order < ActiveRecord::Base
   # validates :user_id, presence: true
   # validates :transaction_id, presence: true
 
+  validates :zip_code, length: { is: 5 }
+
   def order_total
     #sum of line items
   end

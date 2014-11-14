@@ -4,4 +4,6 @@ class Option < ActiveRecord::Base
 
   has_many :lineitems, through: :lineitem_options
   has_many :lineitem_options
+
+  validates :name, presence: true
 end

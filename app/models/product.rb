@@ -5,4 +5,5 @@ class Product < ActiveRecord::Base
   has_many :options, through: :product_options
 
   validates :name, presence: true
+  validates :price, presence: true
 end
