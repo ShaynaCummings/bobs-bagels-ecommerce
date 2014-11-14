@@ -9,8 +9,4 @@ class Order < ActiveRecord::Base
 
   validates :zip_code, length: { is: 5 }
 
-  def order_total
-    #sum of line items
-  end
-
 end

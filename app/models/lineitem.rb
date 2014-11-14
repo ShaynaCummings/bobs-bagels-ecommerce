@@ -8,8 +8,4 @@ class Lineitem < ActiveRecord::Base
   # validates :product_id, presence: true
   # validates :order_id, presence: true
 
-  def calculate_price
-    #returns price of option(s) + price of product
-  end
-
 end
