@@ -22,6 +22,7 @@ group :development, :test do
   gem 'spring'
   gem 'pry'
 	gem 'rspec-rails', '~> 3.0.0'
+  gem 'bullet'
 	# It has been recommended to me that I use the coverall gem to see how much code I'm touching with tests.
 end
 
