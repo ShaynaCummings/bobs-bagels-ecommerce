@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 
 
   def index
-    @orders = Order.all
+    @orders = Order.includes(:lineitems).all
 
     render json: @orders.as_json(include: [:lineitems])
   end

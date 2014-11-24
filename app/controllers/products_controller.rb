@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
       @category = Category.find(params[:category_id])
       @products = @category.products
     else
-      @products = Product.all
+      @products = Product.includes(:category, :options).all
     end
 
     render json: @products.as_json(include: [:category, :options])
